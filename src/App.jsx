@@ -1,15 +1,26 @@
-import './App.css'
-import Level1 from './Components/Level1'
-import Level2 from './Components/Level2'
-import Level3 from './Components/Level3'
+import { useState } from 'react'
+import "./App.css"
+import MainMenu from './Pages/MainMenu'
 
 function App() {
-  
+  const [selectedLevel, setSelectedLevel] = useState(null)
 
   return (
     <>
-     <Level3/>
-    
+      {!selectedLevel && (
+        <MainMenu onSelectLevel={setSelectedLevel} />
+      )}
+
+      {selectedLevel && (
+        <>
+        <selectedLevel.component />
+
+
+          <button onClick={() => setSelectedLevel(null)}>
+            Back to Menu
+          </button>  
+        </>
+      )}
     </>
   )
 }
