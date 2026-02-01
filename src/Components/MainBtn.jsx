@@ -1,3 +1,4 @@
+import { Lock } from 'lucide-react';
 export default function MainBtn({ data, onSelect }) {
   return (
     <div>
@@ -6,7 +7,7 @@ export default function MainBtn({ data, onSelect }) {
           key={level.id}
           onClick={() => onSelect(level)}
         >
-          {level.name}
+          {level.name}  {level.locked && "🔒"}
         </button>
       ))}
     </div>
